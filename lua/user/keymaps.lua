@@ -25,6 +25,11 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", "<C-y>", "\"+yy", opts)
+keymap("v", "<C-y>", "\"+y", opts)
+keymap("n", "<C-p>", "\"+p", opts)
+keymap("v", "<C-p>", "\"+p", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -41,8 +46,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode 
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -60,6 +65,8 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+keymap("n", "<esc>", ":noh<return><esc>", opts)
 
 -- Terminal --
 -- Better terminal navigation

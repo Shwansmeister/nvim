@@ -19,3 +19,9 @@ require "user.indentline"
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
+require "user.vimtex"
+require'colorizer'.setup()
+-------------------------------
+-- TODO
+--   whichkey for easy registers
+--   whichkey for marks/folds

@@ -79,22 +79,16 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
+  -- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  --[[ ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
-  },
+  }, --]]
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["x"] = { "<cmd>wq!<CR>", "Save & Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   p = {
     name = "Packer",
@@ -161,6 +155,9 @@ local mappings = {
   },
   s = {
     name = "Search",
+    f = {"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files"},
+    t = {"<cmd>Telescope live_grep theme=ivy<cr>", "Find text"},
+    p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -172,15 +169,22 @@ local mappings = {
   },
 
   t = {
-    name = "Terminal",
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    name = "Toggle",
+    t = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    w = { "<cmd>set wrap!<cr>", "Line wrap" },
+    c = { "<Plug>(comment_toggle_linewise_visual)", "Comment" },
   },
+
+  -- t = {
+  --   name = "Terminal",
+  --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+  --   u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+  --   t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+  --   p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+  --   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+  --   h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+  --   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  -- },
 }
 
 which_key.setup(setup)
